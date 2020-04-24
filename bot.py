@@ -37,7 +37,7 @@ async def on_member_join(member):
 
     await channel.send(embed = join)
 
-    role = discord.utils.get(member.guild.roles, id=int("696510124113526814"))
+    role = discord.utils.get(member.guild.roles, id=int("684940280667045897"))
     await member.add_roles(role)
 
 @bot.event
