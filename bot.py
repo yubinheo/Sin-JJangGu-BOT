@@ -23,37 +23,25 @@ async def on_ready():
         await asyncio.sleep(10)
 
         
-@bot.event
-async def on_member_join(member):
+@bot.command()
+async def load(ctx, extension):
+    bot.load_extension(f'cogs.{extension}')
 
-    guild = member.guild
-    channel = discord.utils.get(member.guild.channels, id=int("703107735100850277"))
 
-    join = discord.Embed(description = f'{member}님, {guild}에 입장하셨습니다.', colour = discord.Colour.green())
-    join.set_thumbnail(url = member.avatar_url)
-    join.set_author(name = member.name, icon_url = member.avatar_url)
-    join.set_footer(text = member.guild, icon_url = member.guild.icon_url)
-    join.timestamp = datetime.datetime.utcnow()
+@bot.command()
+async def unload(ctx, extension):
+    bot.unload_extension(f'cogs.{extension}')
 
-    await channel.send(embed = join)
 
-    role = discord.utils.get(member.guild.roles, id=int("684940280667045897"))
-    await member.add_roles(role)
+@bot.command()
+async def reload(ctx, extension):
+    bot.unload_extension(f'cogs.{extension}')
+    bot.load_extension(f'cogs.{extension}')
 
-@bot.event
-async def on_member_remove(member):
+for filename in os.listdir('./cogs'):
+    if filename.endswith('.py'):
+        bot.load_extension(f'cogs.{filename[ :-3 ]}')        
 
-    guild = member.guild
-    channel = discord.utils.get(member.guild.channels, id=int("703107735100850277"))
-
-    remove = discord.Embed(description = f'{member}님, {guild}에서 퇴장하셨습니다.', colour = discord.Colour.red())
-    remove.set_thumbnail(url = member.avatar_url)
-    remove.set_author(name = member.name, icon_url = member.avatar_url)
-    remove.set_footer(text = member.guild, icon_url = member.guild.icon_url)
-    remove.timestamp = datetime.datetime.utcnow()
-
-    await channel.send(embed = remove)        
         
-
 access_token = os.environ["BOT_TOKEN"]
 bot.run(access_token)
