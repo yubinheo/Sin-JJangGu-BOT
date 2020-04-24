@@ -1,10 +1,7 @@
 import discord
 import asyncio
 import os
-import json
 from discord.ext import commands
-from discord.utils import get
-from discord.ext.commands import Bot
 
 
 prefix = '짱구야 '
