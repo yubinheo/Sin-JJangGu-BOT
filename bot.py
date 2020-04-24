@@ -27,7 +27,7 @@ async def on_ready():
 async def on_member_join(member):
 
     guild = member.guild
-    channel = discord.utils.get(member.guild.text_channels, id = '703107735100850277')
+    channel = discord.utils.get(member.guild.channels, id=int("703107735100850277"))
 
     join = discord.Embed(description = f'{member}님, {guild}에 입장하셨습니다.', colour = discord.Colour.green())
     join.set_thumbnail(url = member.avatar_url)
@@ -44,7 +44,7 @@ async def on_member_join(member):
 async def on_member_remove(member):
 
     guild = member.guild
-    channel = discord.utils.get(member.guild.text_channels, id = '703107735100850277')
+    channel = discord.utils.get(member.guild.channels, id=int("703107735100850277"))
 
     remove = discord.Embed(description = f'{member}님, {guild}에서 퇴장하셨습니다.', colour = discord.Colour.red())
     remove.set_thumbnail(url = member.avatar_url)
