@@ -44,4 +44,6 @@ for filename in os.listdir('./cogs'):
     if filename.endswith('.py'):
         bot.load_extension(f'cogs.{filename[ :-3 ]}')
 
-bot.run('Njk2NTA4MTg4NTg0OTY4Mjcy.XowtZw.V7l1ZF6SyU9VXCch3SfX1rQLWy8')
+
+access_token = os.environ["BOT_TOKEN"]
+bot.run(access_token)
