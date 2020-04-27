@@ -71,7 +71,6 @@ class Info(commands.Cog, name='정보 Cog'):
         em.add_field(name = ':birthday: 계정 생성일 :', value = member.created_at.strftime("%Y년 %m월 %d일".encode("unicode-escape").decode()).encode().decode("unicode-escape"), inline = False)
         em.add_field(name = ':inbox_tray: 서버 입장일 :', value = member.joined_at.strftime("%Y년 %m월 %d일".encode("unicode-escape").decode()).encode().decode("unicode-escape"), inline = False)
         em.add_field(name = '역할 :', value = " | ".join([role.mention for role in roles]), inline = False)
-        em.add_field(name = '게임', value = member.activity)
         em.add_field(name = '봇 :', value = ('맞습니다' if member.bot else '아닙니다'), inline = False)
         await ctx.send(embed = em)
 
