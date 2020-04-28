@@ -12,18 +12,19 @@ class Info(commands.Cog, name='정보 Cog'):
 
     def __init__(self, bot):
         self.bot = bot
-        self.prefix = '?'
+        self.prefix = '짱구야 '
 
 
     @commands.command(aliases=['핑'])
     async def Ping(self, ctx):
 
-        embed = discord.Embed(colour=0X1C8ADB, timestamp=ctx.message.created_at)
-        embed.set_footer(text=f'{ctx.author}', icon_url=f'{ctx.author.avatar_url}')
+        em = discord.Embed(colour = discord.Colour.blue())
+        em.timestamp = datetime.datetime.utcnow()
+        em.set_footer(text=f'{ctx.author}', icon_url=f'{ctx.author.avatar_url}')
 
-        embed.add_field(name=':ping_pong: **Pong**!', value=f'__**{round(self.bot.latency * 1000)}ms!**__')
+        em.add_field(name=':ping_pong: **Pong**!', value=f'__**{round(self.bot.latency * 1000)}ms!**__')
 
-        await ctx.send(embed=embed)
+        await ctx.send(embed=em)
 
     @commands.command(aliases = ['봇정보'])
     async def info_bot(self, ctx):
