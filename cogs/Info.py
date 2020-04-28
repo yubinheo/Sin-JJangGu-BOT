@@ -104,7 +104,7 @@ class Info(commands.Cog, name='정보 Cog'):
         em.set_footer(text = f'요청자 - {ctx.author}', icon_url = ctx.author.avatar_url)
 
         em.add_field(name='서버 주인 :', value=f'**{ctx.guild.owner.display_name}#{ctx.guild.owner.discriminator}\n({ctx.guild.owner.id})**', inline=False)
-        em.add_field(name='서버 고유 이름 / ID :', value=f'**{ctx.guild.name}\n{ctx.guild.id}**', inline=False)
+        em.add_field(name='서버 이름 / 고유 ID :', value=f'**{ctx.guild.name}\n{ctx.guild.id}**', inline=False)
         em.add_field(name='서버 지역 :', value=str(region), inline=False)
         em.add_field(name='서버 생성일 :', value=ctx.guild.created_at.strftime("**%Y년 %m월 %d일**".encode("unicode-escape").decode()).encode().decode("unicode-escape"), inline=False)
         em.add_field(name='서버 채널 수 :', value=f'**카테고리 : {len(guild.categories)}개 | 채팅 : {len(guild.text_channels)}개 | 음성 : {len(guild.voice_channels)}개**', inline=False)
