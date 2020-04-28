@@ -8,10 +8,10 @@ start_time = time.time()
 
 class Uptime(commands.Cog):
 
-	def __init__(self, bot):
-		self.bot = bot
+def __init__(self, bot):
+	self.bot = bot
 
-	@commands.command()
+    @commands.command()
 	async def uptime(self, ctx):
 		curr_time = time.time()
 		diff = int(round(curr_time - start_time))
