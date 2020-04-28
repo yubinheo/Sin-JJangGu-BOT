@@ -115,7 +115,9 @@ class Info(commands.Cog, name='정보 Cog'):
         
     @commands.command(aliases=['서버목록'])
     async def serverlist(self, ctx):
-        em = discord.Embed(title=f'{self.bot.user.name} 서버 목록')
+        em = discord.Embed(title=f'{self.bot.user.name} 서버 목록', colour = discord.Colour.blue())
+        em.timestamp = datetime.datetime.utcnow()
+        
         for g in self.bot.guilds:
             em.add_field(name=g.name, value=f'{len(g.members)}명', inline=False)
 
