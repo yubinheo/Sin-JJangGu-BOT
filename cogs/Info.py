@@ -108,7 +108,8 @@ class Info(commands.Cog, name='정보 Cog'):
         em.add_field(name='서버 생성일 :', value=ctx.guild.created_at.strftime("**%Y년 %m월 %d일**".encode("unicode-escape").decode()).encode().decode("unicode-escape"), inline=False)
         em.add_field(name='서버 채널 수 :', value=f'**카테고리 : {len(guild.categories)}개 | 채팅 : {len(guild.text_channels)}개 | 음성 : {len(guild.voice_channels)}개**', inline=False)
         em.add_field(name='서버 인원 수 :',value=f'**총 인원 : {guild.member_count}명 | 회원 : {len([Member for Member in guild.members if not Member.bot])}명 | 봇 : {len([Member for Member in guild.members if Member.bot])}명**', inline=False)
-
+        em.add_field(name ='서버 이모지 수:',value = f'{len(guild.emojis)}개 / {guild.emoji_limit}개',inline = False)
+        
         await ctx.send(embed = em)
 
 def setup(bot):
