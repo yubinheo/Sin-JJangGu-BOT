@@ -19,9 +19,9 @@ def __init__(self, bot):
 	embed = discord.Embed(color=discord.Color.blue())
 	embed.add_field(name="짱구봇 온라인 시간 :-", value=text)
 	try:
-		await ctx.send(embed=embed)
+	    await ctx.send(embed=embed)
 	except discord.HTTPException:
-		await ctx.send("Uptime is " + text)
+	    await ctx.send("Uptime is " + text)
 
 def setup(bot):
 	bot.add_cog(Uptime(bot))
