@@ -11,13 +11,13 @@ class Uptime(commands.Cog):
 def __init__(self, bot):
 	self.bot = bot
 
-    @commands.command()
+    @commands.command(aliases = ['업타임'])
 	async def uptime(self, ctx):
 		curr_time = time.time()
 		diff = int(round(curr_time - start_time))
 		text = str(datetime.timedelta(seconds=diff))
-		embed = discord.Embed(color=discord.Color.dark_blue())
-		embed.add_field(name="Im Uptime Since :-", value=text)
+		embed = discord.Embed(color=discord.Color.blue())
+		embed.add_field(name="짱구봇 온라인 시간 :-", value=text)
 		try:
 			await ctx.send(embed=embed)
 		except discord.HTTPException:
