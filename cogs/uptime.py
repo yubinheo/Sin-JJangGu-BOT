@@ -9,10 +9,10 @@ start_time = time.time()
 class Uptime(commands.Cog):
 
 def __init__(self, bot):
-	self.bot = bot
+    self.bot = bot
 
     @commands.command(aliases = ['업타임'])
-	async def uptime(self, ctx):
+    async def uptime(self, ctx):
 		curr_time = time.time()
 		diff = int(round(curr_time - start_time))
 		text = str(datetime.timedelta(seconds=diff))
