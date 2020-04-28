@@ -112,6 +112,14 @@ class Info(commands.Cog, name='정보 Cog'):
         em.add_field(name='서버 커스텀 이모지 수:',value = f'{len(guild.emojis)}개 / {guild.emoji_limit}개',inline = False)
         
         await ctx.send(embed = em)
+        
+    @commands.command(aliases=['서버목록'])
+    async def serverlist(self, ctx):
+        em = discord.Embed(title=f'{self.bot.user.name} 서버 목록')
+        for g in self.bot.guilds:
+            em.add_field(name=g.name, value=f'{len(g.members)}명', inline=False)
+
+        await ctx.send(embed=em)
 
 def setup(bot):
     bot.add_cog(Info(bot))
