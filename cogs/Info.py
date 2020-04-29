@@ -6,6 +6,7 @@ import datetime
 import time
 import platform
 
+start_time = time.time()
 
 class Info(commands.Cog, name='정보 Cog'):
 
