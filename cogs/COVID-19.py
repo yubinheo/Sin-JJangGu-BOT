@@ -12,7 +12,6 @@ import geocoder
 import re
 import time
 import datetime
-import request
 
 class COVID19(commands.Cog):
 
