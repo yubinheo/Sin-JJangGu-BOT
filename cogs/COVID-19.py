@@ -7,7 +7,7 @@ from urllib import parse
 from bs4 import BeautifulSoup
 from discord.ext import commands
 import json
-import pandas as pd
+import pandas
 import geocoder
 import re
 import time
