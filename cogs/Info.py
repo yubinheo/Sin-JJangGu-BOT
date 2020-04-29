@@ -3,6 +3,7 @@ from discord.ext import commands
 
 import asyncio
 import datetime
+import time
 import platform
 
 
@@ -121,8 +122,19 @@ class Info(commands.Cog, name='정보 Cog'):
         
         for g in self.bot.guilds:
             em.add_field(name=g.name, value=f'{len(g.members)}명', inline=False)
-
         await ctx.send(embed=em)
-
+        
+    @commands.command(aliases = ['업타임'])
+    async def uptime(self, ctx):
+        curr_time = time.time()
+        diff = int(round(curr_time - start_time))
+        text = str(datetime.timedelta(seconds=diff))
+        em = discord.Embed(colour = discord.Colour.blue())
+        em.add_field(name = '온라인 시간 :', value = text)
+        try:
+            await ctx.send(embed = em)
+        except discord.HTTPException:
+            await ctx.send('온라인 시간 :' + text)
+            
 def setup(bot):
     bot.add_cog(Info(bot))
