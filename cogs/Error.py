@@ -14,10 +14,10 @@ class Error(commands.Cog):
                 return
             else:
                 embed = discord.Embed(
-                    titile=f'{ctx.command} 에서 오류 발생', description=f'{ctx.command.qualified_name}\n{error}', Colour=discord.Colour.red())
+                    title=f'{ctx.command} 에서 오류 발생', description=f'{ctx.command.qualified_name}\n{error}', Colour=discord.Colour.red())
                 await ctx.send(embed=embed)
         except:
-            embed = discord.Embed(titile=f'{ctx.command} 에서 오류 발생',
+            embed = discord.Embed(title=f'{ctx.command} 에서 오류 발생',
                                   description=f'{error}', Colour=discord.Colour.red())
             await ctx.send(embed=emded)
 
