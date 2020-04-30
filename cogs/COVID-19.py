@@ -80,11 +80,14 @@ class COVID19(commands.Cog):
         keywords2 = soup.find_all('td', class_='')
         keywords2 = [each_line.get_text().strip() for each_line in keywords2[:80]]
 
-
-        embed = discord.Embed(title = '지구촌 코로나19 현황이야! 질병관리본부가 제공해줬어!', colour = discord.Colour.red())
+        embed = discord.Embed(
+            title = '지구촌 코로나19 현황이야! 질병관리본부가 제공해줬어!',
+            colour = discord.Colour.red()
+        )
         for i in range(0, len(keywords)):
             embed.add_field(name = " ".join(keywords[i].split()), value = " ".join(keywords2[i].split()), inline = False)
-            await ctx.send(embed=embed)
+        await ctx.send(embed=embed)
+        print(len(keywords))
 
 def setup(bot):
     bot.add_cog(COVID19(bot))
