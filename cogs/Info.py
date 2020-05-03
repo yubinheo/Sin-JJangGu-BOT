@@ -20,11 +20,12 @@ class Info(commands.Cog, name='정보 Cog'):
     @commands.command(aliases=['핑'])
     async def Ping(self, ctx):
 
+        diff = resp.created_at - ctx.message.created_at
         em = discord.Embed(colour = discord.Colour.blue())
         em.timestamp = datetime.datetime.utcnow()
         em.set_footer(text=f'{ctx.author}', icon_url=f'{ctx.author.avatar_url}')
 
-        em.add_field(name=':ping_pong: **Pong**!', value=f'__**{round(self.bot.latency * 1000)}ms!**__')
+        em.add_field(name=':ping_pong: **Pong**!', value=f'API : **{1000*diff.total_seconds():.1f}ms!**\n{self.bot.user.name} __**{round(self.bot.latency * 1000)}ms!**__')
 
         await ctx.send(embed=em)
 
