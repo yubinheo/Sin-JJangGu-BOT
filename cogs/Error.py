@@ -13,13 +13,11 @@ class Error(commands.Cog):
             if hasattr(ctx.error, 'on_error'):
                 return
             else:
-                embed = discord.Embed(
-                    title=f'{ctx.command} 에서 오류 발생', description=f'{ctx.command.qualified_name}\n{error}', Colour=discord.Colour.red())
-                await ctx.send(embed=embed)
+                e = discord.Embed(title=f'{ctx.command} 에서 오류 발생', description=f'{ctx.command.qualified_name}\n{error}', Colour=discord.Colour.red())
+                await ctx.send(embed=e)
         except:
-            embed = discord.Embed(title=f'{ctx.command} 에서 오류 발생',
-                                  description=f'{error}', Colour=discord.Colour.red())
-            await ctx.send(embed=emded)
+            e = discord.Embed(title=f'{ctx.command} 에서 오류 발생', description=f'{error}', Colour=discord.Colour.red())
+            await ctx.send(embed=e)
 
 
 def setup(bot):
