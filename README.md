@@ -12,7 +12,7 @@ Discord.py 기반 신짱구 봇
 개발자   
 -------------
 ##### Darius (Project Manager)   
-##### HeoYuBin (Covid19, Mask, Weather Function)   
+##### HeoYuBin (Covid19(Korea, Earth), Mask(Korea), Weather(Korea) Function)   
 ##### JaeWoo (Naver Serach , Wiki Serach, Word Relay)   
 ##### Kimdy (R6S Entirely)   
    
